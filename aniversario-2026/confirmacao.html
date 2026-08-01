@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Confirmar Presença · Aniversário 2026</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body class="page-confirmacao">
+
+  <!-- ── Partículas decorativas ─────────────────────────────────── -->
+  <div class="particulas" aria-hidden="true">
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+  </div>
+
+  <!-- ── Cabeçalho ──────────────────────────────────────────────── -->
+  <header class="conf-header">
+    <div class="ornamento-topo" aria-hidden="true">
+      <span class="linha-ornamento"></span>
+      <span class="diamante">◆</span>
+      <span class="linha-ornamento"></span>
+    </div>
+    <a href="index.html" class="btn-voltar">← Voltar ao Convite</a>
+    <p class="eyebrow" style="margin-top:12px;">— Aniversário · 08/08/2026 —</p>
+    <h1 class="conf-titulo">Confirmar Presença</h1>
+    <p class="conf-subtitulo">Preencha seu nome e de quem vai com você</p>
+
+    <!-- Badge admin -->
+    <div id="admin-badge" class="admin-badge hidden">
+      🔐 Modo Administrador Ativo
+    </div>
+  </header>
+
+  <!-- ── Formulário de confirmação ─────────────────────────────── -->
+  <main class="conf-corpo">
+
+    <!-- Card do formulário (some após confirmação) -->
+    <div id="form-card" class="conf-card">
+
+      <div class="ornamento-topo" aria-hidden="true" style="margin-bottom:24px;">
+        <span class="linha-ornamento"></span>
+        <span class="flor">✾</span>
+        <span class="linha-ornamento"></span>
+      </div>
+
+      <div class="campos-wrap">
+
+        <!-- Campo obrigatório -->
+        <div class="campo-grupo">
+          <label class="campo-label">Seu Nome <span class="obrigatorio">*</span></label>
+          <input id="campo-nome" type="text" class="campo-input"
+                 placeholder="Seu nome " />
+        </div>
+
+        <!-- Acompanhantes opcionais -->
+        <div class="campo-grupo">
+          <label class="campo-label">Esposa/Esposo <span class="opcional">(opcional)</span></label>
+          <input id="campo-ac1" type="text" class="campo-input"
+                 placeholder="Nome " />
+        </div>
+
+        <div class="campo-grupo">
+          <label class="campo-label">Filho <span class="opcional">(opcional)</span></label>
+          <input id="campo-ac2" type="text" class="campo-input"
+                 placeholder="Nome " />
+        </div>
+
+        <div class="campo-grupo">
+          <label class="campo-label">Filho <span class="opcional">(opcional)</span></label>
+          <input id="campo-ac3" type="text" class="campo-input"
+                 placeholder="Nome " />
+        </div>
+
+      </div>
+
+      <p id="form-erro" class="form-erro hidden">
+        Por favor, informe pelo menos seu nome.
+      </p>
+
+      <button class="btn-cta" style="width:100%; margin-top:28px;"
+              onclick="confirmarPresenca()">
+        ✨ Confirmar Presença
+      </button>
+
+    </div>
+
+    <!-- Mensagem de sucesso (aparece após confirmar) -->
+    <div id="sucesso-card" class="sucesso-card hidden">
+      <div class="sucesso-icone">🎉</div>
+      <h2 class="sucesso-titulo">Presença Confirmada!</h2>
+      <p class="sucesso-msg">
+        Que alegria! Te esperamos no dia <strong>08 de Agosto</strong>.<br/>
+        Não esqueça do kit churrasco! 🥩
+      </p>
+      <div class="ornamento-meio" style="color:#C9A84C; margin: 20px 0;">✦</div>
+      <a href="index.html" class="btn-voltar-home">← Voltar ao Convite</a>
+    </div>
+
+    <!-- Lista de confirmados (só admin vê) -->
+    <div id="lista-admin" class="lista-admin hidden">
+      <h3 class="lista-admin-titulo">Lista de Confirmados</h3>
+      <div id="lista-admin-itens"></div>
+    </div>
+
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="conf-footer">
+    Aniversário · 08 de Agosto de 2026 · Artesano Buffet · Boituva/SP
+  </footer>
+
+  <script type="module" src="js/firebase.js"></script>
+  <script type="module" src="js/confirmacao.js"></script>
+
+</body>
+</html>

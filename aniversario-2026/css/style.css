@@ -1,0 +1,603 @@
+/* ════════════════════════════════════════════════════════════════════
+   ANIVERSÁRIO 2026 · style.css
+   Design: Elegante · Dourado · Preto · Sofisticado
+════════════════════════════════════════════════════════════════════ */
+
+/* ── Reset ───────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: 'Montserrat', 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Tokens ──────────────────────────────────────────────────────── */
+:root {
+  --preto:    #0A0A0A;
+  --grafite:  #141414;
+  --ouro:     #C9A84C;
+  --ouro-claro: #E8C97A;
+  --ouro-escuro: #9A7230;
+  --creme:    #F5EDD8;
+  --branco:   #FFFFFF;
+  --cinza:    rgba(255,255,255,0.08);
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   FUNDO E PARTÍCULAS
+════════════════════════════════════════════════════════════════════ */
+
+.page-index,
+.page-confirmacao {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(201,168,76,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(201,168,76,0.06) 0%, transparent 50%),
+    linear-gradient(160deg, #0A0A0A 0%, #1a1208 50%, #0A0A0A 100%);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Partículas flutuantes */
+.particulas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.particulas span {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.6), transparent);
+  animation: flutuar linear infinite;
+  opacity: 0;
+}
+
+.particulas span:nth-child(1)  { width:4px; height:4px; left:10%; animation-duration:18s; animation-delay:0s;   }
+.particulas span:nth-child(2)  { width:3px; height:3px; left:25%; animation-duration:22s; animation-delay:3s;   }
+.particulas span:nth-child(3)  { width:5px; height:5px; left:40%; animation-duration:16s; animation-delay:1s;   }
+.particulas span:nth-child(4)  { width:3px; height:3px; left:55%; animation-duration:20s; animation-delay:5s;   }
+.particulas span:nth-child(5)  { width:4px; height:4px; left:70%; animation-duration:25s; animation-delay:2s;   }
+.particulas span:nth-child(6)  { width:6px; height:6px; left:85%; animation-duration:19s; animation-delay:7s;   }
+.particulas span:nth-child(7)  { width:3px; height:3px; left:15%; animation-duration:23s; animation-delay:4s;   }
+.particulas span:nth-child(8)  { width:4px; height:4px; left:60%; animation-duration:17s; animation-delay:6s;   }
+.particulas span:nth-child(9)  { width:5px; height:5px; left:32%; animation-duration:21s; animation-delay:9s;   }
+.particulas span:nth-child(10) { width:3px; height:3px; left:78%; animation-duration:24s; animation-delay:1s;   }
+.particulas span:nth-child(11) { width:4px; height:4px; left:48%; animation-duration:20s; animation-delay:11s;  }
+.particulas span:nth-child(12) { width:6px; height:6px; left:92%; animation-duration:18s; animation-delay:8s;   }
+
+@keyframes flutuar {
+  0%   { bottom: -10px; opacity: 0; transform: translateX(0) rotate(0deg); }
+  10%  { opacity: 0.7; }
+  90%  { opacity: 0.4; }
+  100% { bottom: 110vh; opacity: 0; transform: translateX(60px) rotate(360deg); }
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   INDEX — Hero
+════════════════════════════════════════════════════════════════════ */
+
+.hero-index {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+/* ── Card central ────────────────────────────────────────────────── */
+.hero-card {
+  max-width: 620px;
+  width: 100%;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(201,168,76,0.25);
+  border-radius: 4px;
+  padding: 52px 44px;
+  text-align: center;
+  color: var(--creme);
+  box-shadow:
+    0 0 0 1px rgba(201,168,76,0.08),
+    0 32px 80px rgba(0,0,0,0.6),
+    inset 0 1px 0 rgba(201,168,76,0.15);
+  position: relative;
+}
+
+/* Cantos decorativos */
+.hero-card::before,
+.hero-card::after {
+  content: '';
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border-color: var(--ouro);
+  border-style: solid;
+  opacity: 0.5;
+}
+.hero-card::before { top: 12px; left: 12px; border-width: 1px 0 0 1px; }
+.hero-card::after  { bottom: 12px; right: 12px; border-width: 0 1px 1px 0; }
+
+/* ── Ornamentos ──────────────────────────────────────────────────── */
+.ornamento-topo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.linha-ornamento {
+  display: block;
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.4), transparent);
+}
+.diamante {
+  color: var(--ouro);
+  font-size: 0.6rem;
+  opacity: 0.7;
+}
+.ornamento-meio {
+  color: var(--ouro);
+  font-size: 1rem;
+  opacity: 0.6;
+  margin: 16px 0;
+  letter-spacing: 0.3em;
+}
+.ornamento-divisor {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 28px 0 24px;
+}
+.flor {
+  color: var(--ouro);
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+/* ── Textos ──────────────────────────────────────────────────────── */
+.eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ouro);
+  opacity: 0.75;
+  margin: 0 0 20px;
+}
+
+.titulo-convite {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(2.2rem, 7vw, 3.8rem);
+  line-height: 1.15;
+  margin: 0;
+  color: var(--creme);
+  text-shadow: 0 2px 20px rgba(201,168,76,0.2);
+  letter-spacing: 0.01em;
+}
+
+/* ── Data em destaque ────────────────────────────────────────────── */
+.data-destaque { margin: 8px 0 24px; }
+
+.data-label {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ouro);
+  opacity: 0.5;
+  margin-bottom: 6px;
+}
+
+.data-numero-wrap {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 4px;
+}
+
+.data-numero {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  font-size: clamp(4.5rem, 16vw, 8rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  background: linear-gradient(160deg, #E8C97A 0%, #C9A84C 50%, #9A7230 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.data-separador {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 10vw, 5rem);
+  font-weight: 300;
+  color: var(--ouro);
+  opacity: 0.4;
+  padding-bottom: 8px;
+  line-height: 1;
+}
+
+.data-mes-ano {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-bottom: 10px;
+  gap: 0;
+}
+.data-mes-ano span {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.2rem, 3.5vw, 2rem);
+  font-weight: 600;
+  color: var(--creme);
+  opacity: 0.85;
+  line-height: 1.2;
+}
+.data-ano {
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  opacity: 0.45 !important;
+  letter-spacing: 0.1em;
+}
+
+/* ── Info pills ──────────────────────────────────────────────────── */
+.infos-grade {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.info-pill {
+  background: rgba(201,168,76,0.08);
+  border: 1px solid rgba(201,168,76,0.22);
+  border-radius: 2px;
+  padding: 8px 18px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--ouro-claro);
+  letter-spacing: 0.04em;
+}
+
+/* ── Botão Maps ──────────────────────────────────────────────────── */
+.btn-maps {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  margin-bottom: 20px;
+  background: rgba(201,168,76,0.1);
+  border: 1px solid rgba(201,168,76,0.4);
+  color: var(--ouro-claro);
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  padding: 12px 24px;
+  border-radius: 2px;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+.btn-maps:hover {
+  background: rgba(201,168,76,0.18);
+  border-color: rgba(201,168,76,0.7);
+  transform: translateY(-2px);
+}
+.seta-maps {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+/* ── Aviso kit churrasco ─────────────────────────────────────────── */
+.aviso-churrasco {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: linear-gradient(135deg, rgba(201,168,76,0.15), rgba(154,114,48,0.1));
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 2px;
+  padding: 14px 24px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  color: var(--ouro-claro);
+  animation: brilho 3s ease-in-out infinite;
+}
+.aviso-detalhe {
+  font-size: 0.75rem;
+  font-weight: 400;
+  opacity: 0.7;
+  letter-spacing: 0.04em;
+}
+@keyframes brilho {
+  0%, 100% { box-shadow: 0 0 0 rgba(201,168,76,0); }
+  50%       { box-shadow: 0 0 20px rgba(201,168,76,0.2); }
+}
+
+/* ── Botão CTA ───────────────────────────────────────────────────── */
+.btn-cta {
+  display: inline-block;
+  background: linear-gradient(135deg, #E8C97A 0%, #C9A84C 50%, #9A7230 100%);
+  color: var(--preto);
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 16px 40px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  box-shadow: 0 8px 28px rgba(201,168,76,0.3);
+  transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+}
+.btn-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(201,168,76,0.45);
+  opacity: 0.92;
+}
+
+.rodape-card {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ouro);
+  opacity: 0.3;
+  margin: 18px 0 0;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   CONFIRMAÇÃO — Página
+════════════════════════════════════════════════════════════════════ */
+
+.conf-header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 48px 20px 32px;
+  color: var(--creme);
+}
+
+.btn-voltar {
+  display: inline-block;
+  color: rgba(201,168,76,0.55);
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+  transition: color 0.2s;
+}
+.btn-voltar:hover { color: var(--ouro); }
+
+.conf-titulo {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: clamp(2rem, 6vw, 3rem);
+  margin: 8px 0 0;
+  color: var(--creme);
+}
+
+.conf-subtitulo {
+  font-size: 0.85rem;
+  color: var(--ouro);
+  opacity: 0.6;
+  margin: 8px 0 0;
+  letter-spacing: 0.04em;
+}
+
+/* Badge admin */
+.admin-badge {
+  display: inline-block;
+  margin-top: 14px;
+  background: rgba(220,50,50,0.15);
+  border: 1px solid rgba(220,50,50,0.35);
+  color: #ff9999;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 5px 16px;
+  border-radius: 2px;
+}
+
+/* ── Corpo ───────────────────────────────────────────────────────── */
+.conf-corpo {
+  position: relative;
+  z-index: 1;
+  max-width: 540px;
+  margin: 0 auto;
+  padding: 0 16px 40px;
+}
+
+/* ── Card do formulário ──────────────────────────────────────────── */
+.conf-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(201,168,76,0.22);
+  border-radius: 4px;
+  padding: 36px 32px;
+  box-shadow:
+    0 0 0 1px rgba(201,168,76,0.06),
+    0 24px 60px rgba(0,0,0,0.5);
+  position: relative;
+}
+.conf-card::before,
+.conf-card::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-color: var(--ouro);
+  border-style: solid;
+  opacity: 0.4;
+}
+.conf-card::before { top: 10px; left: 10px; border-width: 1px 0 0 1px; }
+.conf-card::after  { bottom: 10px; right: 10px; border-width: 0 1px 1px 0; }
+
+/* ── Campos ──────────────────────────────────────────────────────── */
+.campos-wrap { display: flex; flex-direction: column; gap: 16px; }
+
+.campo-grupo { display: flex; flex-direction: column; gap: 6px; }
+
+.campo-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ouro);
+  opacity: 0.8;
+}
+.obrigatorio { color: #E8C97A; }
+.opcional    { color: rgba(201,168,76,0.4); font-weight: 400; text-transform: none; letter-spacing: 0; font-size: 0.75rem; }
+
+.campo-input {
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 2px;
+  padding: 11px 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.875rem;
+  color: var(--creme);
+  background: rgba(255,255,255,0.04);
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.campo-input::placeholder { color: rgba(245,237,216,0.25); }
+.campo-input:focus {
+  border-color: rgba(201,168,76,0.6);
+  background: rgba(201,168,76,0.05);
+}
+
+.form-erro {
+  font-size: 0.78rem;
+  color: #ff8888;
+  margin: 4px 0 0;
+}
+
+/* ── Card de sucesso ─────────────────────────────────────────────── */
+.sucesso-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(201,168,76,0.25);
+  border-radius: 4px;
+  padding: 52px 32px;
+  text-align: center;
+  color: var(--creme);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+}
+.sucesso-icone  { font-size: 3.5rem; margin-bottom: 16px; }
+.sucesso-titulo {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 2rem;
+  color: var(--ouro-claro);
+  margin: 0 0 12px;
+}
+.sucesso-msg {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: rgba(245,237,216,0.7);
+  margin: 0;
+}
+.btn-voltar-home {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--ouro);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+.btn-voltar-home:hover { opacity: 1; }
+
+/* ── Lista admin ─────────────────────────────────────────────────── */
+.lista-admin {
+  margin-top: 32px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(220,50,50,0.2);
+  border-radius: 4px;
+  padding: 24px;
+}
+.lista-admin-titulo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  color: var(--ouro-claro);
+  margin: 0 0 16px;
+  text-align: center;
+}
+
+/* Card de confirmado (admin) */
+.conf-item {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(201,168,76,0.15);
+  border-radius: 4px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  color: var(--creme);
+}
+.conf-item-nome {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--ouro-claro);
+  margin-bottom: 4px;
+}
+.conf-item-acomp {
+  font-size: 0.78rem;
+  color: rgba(245,237,216,0.5);
+  line-height: 1.6;
+}
+.conf-item-acoes {
+  margin-top: 8px;
+  display: flex;
+  justify-content: flex-end;
+}
+.btn-deletar {
+  background: transparent;
+  border: 1px solid rgba(220,50,50,0.4);
+  color: #ff8888;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.btn-deletar:hover { background: rgba(220,50,50,0.2); }
+
+/* ── Rodapé ──────────────────────────────────────────────────────── */
+.conf-footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ouro);
+  opacity: 0.3;
+  border-top: 1px solid rgba(201,168,76,0.1);
+}
+
+/* ── Utilitário ──────────────────────────────────────────────────── */
+.hidden { display: none !important; }
+
+/* ── Responsivo ──────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .hero-card   { padding: 36px 22px; }
+  .conf-card   { padding: 28px 18px; }
+  .data-numero { font-size: 4rem; }
+  .btn-cta     { padding: 14px 28px; font-size: 0.82rem; }
+}
